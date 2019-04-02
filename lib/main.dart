@@ -1,32 +1,10 @@
 import 'package:flutter/material.dart';
+import './theme/CustomPantone.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-
-  static final Map<int, Color> colors = {
-    50:Color.fromRGBO(250,114,104, .1),
-
-    100:Color.fromRGBO(250,114,104, .2),
-
-    200:Color.fromRGBO(250,114,104, .3),
-
-    300:Color.fromRGBO(250,114,104, .4),
-
-    400:Color.fromRGBO(250,114,104, .5),
-
-    500:Color.fromRGBO(250,114,104, .6),
-
-    600:Color.fromRGBO(250,114,104, .7),
-
-    700:Color.fromRGBO(250,114,104, .8),
-
-    800:Color.fromRGBO(250,114,104, .9),
-
-    900:Color.fromRGBO(250,114,104, 1),
-  };
-  final MaterialColor colorCustom = MaterialColor(0xFFfa7268, colors); // 0xFFfa7268
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +20,8 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: colorCustom,
-        bottomAppBarColor: colorCustom
+        primarySwatch: CustomColors.getColorA(),
+        bottomAppBarColor: CustomColors.getColorLight(),
       ),
       home: MyHomePage(title: 'Alpha'),
     );
