@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:email_validator/email_validator.dart';
 import '../theme/CustomPantone.dart';
 
 class LoginForm extends StatefulWidget {
@@ -24,11 +25,14 @@ class LoginFormState extends State<LoginForm> {
                 padding: EdgeInsets.only(bottom: 5,left: 15,right: 15,top: 15),
                 child: TextFormField(
                   decoration: InputDecoration(
-                      labelText: 'username'
+                      labelText: 'Please enter your username'
                   ),
                   validator: (value) {
                     if(value.isEmpty) {
-                      return 'Please enter your username';
+                      return 'Username can not be empty';
+                    }
+                    if(EmailValidator.validate(value) != true){
+                      return 'Username is not a valid email';
                     }
                   },
                 ),
@@ -41,7 +45,7 @@ class LoginFormState extends State<LoginForm> {
                   ),
                   validator: (value) {
                     if(value.isEmpty) {
-                      return 'Please enter some text';
+                      return 'Password can not be empty';
                     }
                   },
                 ),
